@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiPlatform", "MultiPlatform\MultiPlatform.csproj", "{63C786AF-89F4-4DB1-A91E-338AD792EE2E}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shproj", "{EF8A9FC8-EA64-4705-9C11-2125D87EE364}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zTests", "zTests\zTests.csproj", "{29AE351E-1D92-4B8D-9CD6-E095C5989DDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63C786AF-89F4-4DB1-A91E-338AD792EE2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63C786AF-89F4-4DB1-A91E-338AD792EE2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63C786AF-89F4-4DB1-A91E-338AD792EE2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63C786AF-89F4-4DB1-A91E-338AD792EE2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29AE351E-1D92-4B8D-9CD6-E095C5989DDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29AE351E-1D92-4B8D-9CD6-E095C5989DDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29AE351E-1D92-4B8D-9CD6-E095C5989DDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29AE351E-1D92-4B8D-9CD6-E095C5989DDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
