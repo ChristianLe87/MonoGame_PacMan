@@ -10,11 +10,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\IScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\WK.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\MenuScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\GameScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scenes\AboutScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Tools.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Assets\Cell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Assets\Map.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)Assets\PacMan_Levels.json" />
+    <Folder Include="$(MSBuildThisFileDirectory)Scenes\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
   </ItemGroup>
 </Project>

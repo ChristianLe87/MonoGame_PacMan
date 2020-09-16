@@ -1,71 +1,66 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace Shared
 {
+
     public class Game1 : Game
     {
-        public static GraphicsDeviceManager graphicsDeviceManager;
         SpriteBatch spriteBatch;
 
-        Texture2D texture2D;
-        Rectangle rectangle;
 
-        int canvasWidth = 500;
-        int canvasHeight = 500;
+        // Statics
+        public static GraphicsDeviceManager graphicsDeviceManager;
+        public static ContentManager contentManager;
 
-        public Game1()
+        Dictionary<string, IScene> scenes;
+
+        string actualScene;
+
+        public Game1(string relativePath)
         {
-            graphicsDeviceManager = new GraphicsDeviceManager(this);
-
-            string relativePath = $"../../../../MonoGame_Templates/Assets/";
             string absolutePath = new DirectoryInfo(Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, relativePath))).ToString();
             this.Content.RootDirectory = absolutePath;
+            contentManager = this.Content;
+
+            graphicsDeviceManager = new GraphicsDeviceManager(this);
 
             // Window size
-            graphicsDeviceManager.PreferredBackBufferWidth = canvasWidth;
-            graphicsDeviceManager.PreferredBackBufferHeight = canvasHeight;
+            graphicsDeviceManager.PreferredBackBufferWidth = 180;
+            graphicsDeviceManager.PreferredBackBufferHeight = 220;
         }
 
 
         protected override void Initialize()
         {
-            // TODO: Code
+            // code
             base.Initialize();
         }
 
 
         protected override void LoadContent()
         {
+            actualScene = WK.Scene.GameScene;
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: Code
-            texture2D = Tools.CreateColorTexture(Color.Pink);
-            rectangle = new Rectangle(250, 250, 20, 20);
-        }
-
-
-        protected override void UnloadContent()
-        {
-            // TODO: Code
+            scenes = new Dictionary<string, IScene>()
+            {
+                { WK.Scene.MenuScene, new MenuScene() },
+                { WK.Scene.GameScene, new GameScene() },
+                { WK.Scene.AboutScene, new AboutScene() }
+            };
         }
 
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            // TODO: Code
-
-            if (true) this.IsMouseVisible = true;
-
-            Vector2 oldPosition = new Vector2(rectangle.X, rectangle.Y);
-            Vector2 newPosition = Tools.MovePlayer(oldPosition, 100, 100, 2);
-            rectangle = new Rectangle((int)newPosition.X, (int)newPosition.Y, rectangle.Width, rectangle.Height);
+            // code
+            scenes[actualScene].Update();
 
             base.Update(gameTime);
         }
@@ -73,53 +68,14 @@ namespace Shared
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            graphicsDeviceManager.GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
 
-            // TODO: Code
-            spriteBatch.Draw(texture2D, rectangle, Color.White);
+            // code
+            scenes[actualScene].Draw(spriteBatch);
 
             spriteBatch.End();
-
             base.Draw(gameTime);
-        }
-    }
-
-
-
-    public class Tools
-    {
-        internal static Texture2D CreateColorTexture(Color color)
-        {
-            Texture2D newTexture = new Texture2D(Game1.graphicsDeviceManager.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
-            newTexture.SetData(new Color[] { color });
-            return newTexture;
-        }
-
-
-        internal static Vector2 MovePlayer(Vector2 position, int minPosition, int maxPosition, int moveSpeed)
-        {
-            KeyboardState keyboardState = Keyboard.GetState();
-
-            if (keyboardState.IsKeyDown(Keys.A) || keyboardState.IsKeyDown(Keys.Left))
-            {
-                position.X -= moveSpeed;
-            }
-            else if (keyboardState.IsKeyDown(Keys.D) || keyboardState.IsKeyDown(Keys.Right))
-            {
-                position.X += moveSpeed;
-            }
-            else if (keyboardState.IsKeyDown(Keys.W) || keyboardState.IsKeyDown(Keys.Up))
-            {
-                position.Y -= moveSpeed;
-            }
-            else if (keyboardState.IsKeyDown(Keys.S) || keyboardState.IsKeyDown(Keys.Down))
-            {
-                position.Y += moveSpeed;
-            }
-
-            return position;
         }
     }
 }
