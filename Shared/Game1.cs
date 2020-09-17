@@ -52,7 +52,8 @@ namespace Shared
             {
                 { WK.Scene.MenuScene, new MenuScene() },
                 { WK.Scene.GameScene, new GameScene() },
-                { WK.Scene.AboutScene, new AboutScene() }
+                { WK.Scene.AboutScene, new AboutScene() },
+                { WK.Scene.TestScene, new TestScene() }
             };
         }
 

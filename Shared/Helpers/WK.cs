@@ -14,6 +14,7 @@ namespace Shared
             public static string GameScene = "GameScene";
             public static string MenuScene = "MenuScene";
             public static string AboutScene = "AboutScene";
+            public static string TestScene = "TestScene";
         }
 
         public class Map

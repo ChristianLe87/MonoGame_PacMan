@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,7 +15,6 @@ namespace Shared
             newTexture.SetData(new Color[] { color });
             return newTexture;
         }
-
 
         internal static Vector2 MovePlayer(Vector2 position, int minPosition, int maxPosition, int moveSpeed)
         {
