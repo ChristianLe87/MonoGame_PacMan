@@ -30,8 +30,8 @@ namespace Shared
             graphicsDeviceManager = new GraphicsDeviceManager(this);
 
             // Window size
-            graphicsDeviceManager.PreferredBackBufferWidth = 180;
-            graphicsDeviceManager.PreferredBackBufferHeight = 220;
+            graphicsDeviceManager.PreferredBackBufferWidth = WK.Map.Map_1.GetLength(1) * 10;
+            graphicsDeviceManager.PreferredBackBufferHeight = WK.Map.Map_1.GetLength(0) * 10;
         }
 
 
