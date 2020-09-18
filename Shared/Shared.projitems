@@ -18,7 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Cell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Map.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Player.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\IDots.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\IDot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\IFruit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\IGhosts.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\IPortal.cs" />
@@ -31,8 +31,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Portal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\PortalLeft.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\PortalRight.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enums.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\TestScene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Enums.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Assets\Dot.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\" />

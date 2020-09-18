@@ -11,7 +11,7 @@ namespace Shared
 
         public TestScene()
         {
-            //texture = Tools.CreateCircleTexture(20, Color.Pink);
+            texture = Tools.GhostL( Color.Pink);
         }
 
         public void Update()
@@ -21,7 +21,7 @@ namespace Shared
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle(100, 100, 10, 10), Color.White);
+            spriteBatch.Draw(texture, new Rectangle(100, 100, 20, 20), Color.White);
         }
     }
 }

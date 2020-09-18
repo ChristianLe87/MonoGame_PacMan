@@ -12,14 +12,12 @@ namespace Shared
     {
         SpriteBatch spriteBatch;
 
-
-        // Statics
         public static GraphicsDeviceManager graphicsDeviceManager;
         public static ContentManager contentManager;
 
-        Dictionary<string, IScene> scenes;
-
         string actualScene;
+
+        Dictionary<string, IScene> scenes;
 
         public Game1(string relativePath)
         {
@@ -30,8 +28,8 @@ namespace Shared
             graphicsDeviceManager = new GraphicsDeviceManager(this);
 
             // Window size
-            graphicsDeviceManager.PreferredBackBufferWidth = WK.Map.Map_1.GetLength(1) * 10;
-            graphicsDeviceManager.PreferredBackBufferHeight = WK.Map.Map_1.GetLength(0) * 10;
+            graphicsDeviceManager.PreferredBackBufferWidth = WK.Map.Map_1.GetLength(1) * 20;
+            graphicsDeviceManager.PreferredBackBufferHeight = WK.Map.Map_1.GetLength(0) * 20;
         }
 
 

@@ -7,66 +7,73 @@ namespace Shared
 {
     public class Map
     {
-        private List<Cell> cells;
 
-        public Map(char[,] map)
+        internal static List<Cell> PowerUps()
         {
-            this.cells = PopulateCels(map);
-        }
+            char[,] map = WK.Map.Map_1;
 
-        private List<Cell> PopulateCels(char[,] map)
-        {
             int numRows = map.GetLength(0);
             int numColumn = map.GetLength(1);
 
-            List<Cell> cels = new List<Cell>();
+            List<Cell> powerUps = new List<Cell>();
 
-
-
-            // define each cell
             for (var row = 0; row < numRows; row++)
-            {
                 for (var col = 0; col < numColumn; col++)
-                {
-                    if (map[row, col] == ' ')
-                    {
-                        Cell cell = new Cell(new Rectangle(col * 10, row * 10, 10, 10), Tools.CreateColorTexture(Color.Black));
-                        cels.Add(cell);
-                    }
-                    else if (map[row, col] == 'x')
-                    {
-                        cels.Add(new Cell(new Rectangle(col * 10, row * 10, 10, 10), Tools.CreateColorTexture(Color.Blue)));
-                    }
-                    else if (map[row, col] == '.')
-                    {
-                        cels.Add(new Cell(new Rectangle(col * 10, row * 10, 10, 10), Tools.CreateColorTexture(Color.Yellow)));
-                    }
-                    else if (map[row, col] == 'o')
-                    {
-                        cels.Add(new Cell(new Rectangle(col * 10, row * 10, 10, 10), Tools.CreateColorTexture(Color.White)));
-                    }
-                    else
-                    {
-                        cels.Add(new Cell(new Rectangle(col * 10, row * 10, 10, 10), Tools.CreateColorTexture(Color.Pink)));
-                    }
-                }
-            }
+                    if (map[row, col] == 'o')
+                        powerUps.Add(new Cell(new Rectangle(col * 20, row * 20, 20, 20), Tools.CreateColorTexture(Color.White)));
 
-
-            return cels;
+            return powerUps;
         }
 
-        internal void Update()
+        internal static List<Cell> Portals()
         {
-            //throw new NotImplementedException();
+            char[,] map = WK.Map.Map_1;
+
+            int numRows = map.GetLength(0);
+            int numColumn = map.GetLength(1);
+
+            List<Cell> portals = new List<Cell>();
+
+            for (var row = 0; row < numRows; row++)
+                for (var col = 0; col < numColumn; col++)
+                    if (map[row, col] == '<' || map[row, col] == '>')
+                        portals.Add(new Cell(new Rectangle(col * 20, row * 20, 20, 20), Tools.CreateColorTexture(Color.Pink)));
+
+            return portals;
         }
 
-        internal void Draw(SpriteBatch spriteBatch)
+        internal static List<IDot> Dots()
         {
-            foreach (var cell in cells)
-            {
-                cell.Draw(spriteBatch);
-            }
+            char[,] map = WK.Map.Map_1;
+
+            int numRows = map.GetLength(0);
+            int numColumn = map.GetLength(1);
+
+            List<IDot> dots = new List<IDot>();
+
+            for (var row = 0; row < numRows; row++)
+                for (var col = 0; col < numColumn; col++)
+                    if (map[row, col] == '.')
+                        dots.Add(new Dot(new Rectangle(col * 20, row * 20, 20, 20), Tools.CreateColorTexture(Color.Yellow)));
+
+            return dots;
+        }
+
+        internal static List<Cell> Walls()
+        {
+            char[,] map = WK.Map.Map_1;
+
+            int numRows = map.GetLength(0);
+            int numColumn = map.GetLength(1);
+
+            List<Cell> walls = new List<Cell>();
+
+            for (var row = 0; row < numRows; row++)
+                for (var col = 0; col < numColumn; col++)
+                    if (map[row, col] == 'x')
+                        walls.Add(new Cell(new Rectangle(col * 20, row * 20, 20, 20), Tools.CreateColorTexture(Color.Blue)));
+
+            return walls;
         }
     }
 }

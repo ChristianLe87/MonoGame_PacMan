@@ -6,7 +6,7 @@ namespace Shared
 {
     internal class Cell
     {
-        private Rectangle rectangle;
+        public Rectangle rectangle;
         private Texture2D texture2D;
 
         public Cell(Rectangle rectangle, Texture2D texture2D)

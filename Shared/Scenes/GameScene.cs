@@ -7,39 +7,37 @@ namespace Shared
 {
     internal class GameScene : IScene
     {
-        Map map;
-        //Player player;
-        //List<IPortal> portals;
-        //List<IDots> dots;
+        Player player;
+        public static List<Cell> walls;
+        public static List<IDot> dots;
+        public static List<IGhosts> ghosts;
 
         public GameScene()
         {
-            map = new Map(WK.Map.Map_1);
-            //player = new Player(new Rectangle(10,10,10,10));
-            //portals = PortalsGenerator(WK.Map.Map_1);
-            //dots = DotGenerator(WK.Map.Map_1);
+            player = new Player(new Rectangle(260, 400, 20,20));
+            walls = Map.Walls();
+            dots = Map.Dots();
+            ghosts = new List<IGhosts>()
+            {
+                new Blinky(new Rectangle(240, 340, 20, 20)),
+                new Clyde(new Rectangle(260, 340, 20, 20)),
+                new Inky(new Rectangle(280, 340, 20, 20)),
+                new Pinky(new Rectangle(300, 340, 20, 20)),
+            };
         }
 
-        private List<IDots> DotGenerator(char[,] map_1)
-        {
-            throw new NotImplementedException();
-        }
-
-        private List<IPortal> PortalsGenerator(char[,] map_1)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public void Update()
         {
-            map.Update();
-            //player.Update();
+            player.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            map.Draw(spriteBatch);
-            //player.Draw(spriteBatch);
+            foreach (var wall in walls) wall.Draw(spriteBatch);
+            foreach (var dot in dots) dot.Draw(spriteBatch);
+            foreach (var ghost in ghosts) ghost.Draw(spriteBatch);
+            player.Draw(spriteBatch);
         }
     }
 }
