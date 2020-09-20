@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace Shared
 {
@@ -16,41 +12,37 @@ namespace Shared
             return newTexture;
         }
 
-        internal static Vector2 MovePlayer(Vector2 position, int minPosition, int maxPosition, int moveSpeed)
+ 
+
+
+        internal static Texture2D Dot(Color c)
         {
-            KeyboardState keyboardState = Keyboard.GetState();
-
-            if (keyboardState.IsKeyDown(Keys.A) || keyboardState.IsKeyDown(Keys.Left))
-            {
-                position.X -= moveSpeed;
-            }
-            else if (keyboardState.IsKeyDown(Keys.D) || keyboardState.IsKeyDown(Keys.Right))
-            {
-                position.X += moveSpeed;
-            }
-            else if (keyboardState.IsKeyDown(Keys.W) || keyboardState.IsKeyDown(Keys.Up))
-            {
-                position.Y -= moveSpeed;
-            }
-            else if (keyboardState.IsKeyDown(Keys.S) || keyboardState.IsKeyDown(Keys.Down))
-            {
-                position.Y += moveSpeed;
-            }
-
-            return position;
-        }
-
-
-        internal static Texture2D Dot()
-        {
-            Color r = Color.Red;
             Color _ = Color.Black;
             Color[] thing = new Color[]
             {
-                _
+                _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+                _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+                _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+                _, _, _, _, _, _, _, _, _, c, c, c, _, _, _, _, _, _, _, _,
+                _, _, _, _, _, _, _, c, c, c, c, c, c, c, _, _, _, _, _, _,
+                _, _, _, _, _, _, c, c, c, c, c, c, c, c, c, _, _, _, _, _,
+                _, _, _, _, _, c, c, c, c, c, c, c, c, c, c, c, _, _, _, _,
+                _, _, _, _, c, c, c, c, c, c, c, c, c, c, c, c, c, _, _, _,
+                _, _, _, _, c, c, c, c, c, c, c, c, c, c, c, c, c, _, _, _,
+                _, _, _, _, c, c, c, c, c, c, c, c, c, c, c, c, c, _, _, _,
+                _, _, _, _, c, c, c, c, c, c, c, c, c, c, c, c, c, _, _, _,
+                _, _, _, _, c, c, c, c, c, c, c, c, c, c, c, c, c, _, _, _,
+                _, _, _, _, _, c, c, c, c, c, c, c, c, c, c, c, _, _, _, _,
+                _, _, _, _, _, _, c, c, c, c, c, c, c, c, c, _, _, _, _, _,
+                _, _, _, _, _, _, _, c, c, c, c, c, c, c, _, _, _, _, _, _,
+                _, _, _, _, _, _, _, _, _, c, c, c, _, _, _, _, _, _, _, _,
+                _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+                _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+                _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+                _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _
             };
 
-            Texture2D newTexture = new Texture2D(Game1.graphicsDeviceManager.GraphicsDevice, 10, 10);
+            Texture2D newTexture = new Texture2D(Game1.graphicsDeviceManager.GraphicsDevice, 20, 20);
             newTexture.SetData(thing);
             return newTexture;
         }

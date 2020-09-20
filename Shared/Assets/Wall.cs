@@ -3,12 +3,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Shared
 {
-    internal class Cell2
+    public class Wall
     {
-        public Rectangle rectangle;
+        private Rectangle rectangle;
         private Texture2D texture2D;
 
-        public Cell2(Rectangle rectangle, Texture2D texture2D)
+        public Wall(Rectangle rectangle, Texture2D texture2D)
         {
             this.rectangle = rectangle;
             this.texture2D = texture2D;

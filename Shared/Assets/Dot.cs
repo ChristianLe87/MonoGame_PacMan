@@ -1,15 +1,13 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Shared
 {
-    public class Dot : IDot
+    public class Dot
     {
-
-        public Rectangle rectangle { get; set; }
-        public Texture2D texture { get; set; }
-        public bool active { get; set; }
+        private Rectangle rectangle;
+        private Texture2D texture;
+        private bool active;
 
         public Dot(Rectangle rectangle, Texture2D texture2D)
         {
@@ -20,6 +18,11 @@ namespace Shared
 
         public void Update()
         {
+
+            if (rectangle.Intersects(GameScene.player.rectangle))
+            {
+                active = false;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

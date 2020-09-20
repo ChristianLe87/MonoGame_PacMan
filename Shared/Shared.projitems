@@ -18,22 +18,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Cell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Map.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Player.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\IDot.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\IFruit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\IGhosts.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\IPortal.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\IPowerUp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\IScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Ghosts\Blinky.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Ghosts\Clyde.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Ghosts\Inky.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Ghosts\Pinky.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Assets\Portal.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Assets\PortalLeft.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Assets\PortalRight.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scenes\TestScene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Enums.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Dot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Assets\Wall.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\" />

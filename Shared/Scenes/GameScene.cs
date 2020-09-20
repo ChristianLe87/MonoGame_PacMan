@@ -7,9 +7,9 @@ namespace Shared
 {
     internal class GameScene : IScene
     {
-        Player player;
-        public static List<Cell> walls;
-        public static List<IDot> dots;
+        public static Player player;
+        public static List<Wall> walls;
+        public static List<Dot> dots;
         public static List<IGhosts> ghosts;
 
         public GameScene()
@@ -30,6 +30,9 @@ namespace Shared
         public void Update()
         {
             player.Update();
+            //foreach (var wall in walls) wall.Update();
+            foreach (var dot in dots) dot.Update();
+            foreach (var ghost in ghosts) ghost.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
