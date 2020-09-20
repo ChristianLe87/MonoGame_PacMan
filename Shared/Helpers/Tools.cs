@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.IO;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Shared
@@ -12,7 +14,19 @@ namespace Shared
             return newTexture;
         }
 
- 
+        internal static Texture2D GetTexture(string imageName)
+        {
+            string relativePath = $"../../../../MonoGame_PacMan/Shared/Assets/{imageName}.png";
+            string absolutePath = new DirectoryInfo(Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, relativePath))).ToString();
+
+            FileStream fileStream = new FileStream(absolutePath, FileMode.Open);
+
+            var result = Texture2D.FromStream(Game1.graphicsDeviceManager.GraphicsDevice, fileStream);
+            fileStream.Dispose();
+
+            return result;
+        }
+
 
 
         internal static Texture2D Dot(Color c)

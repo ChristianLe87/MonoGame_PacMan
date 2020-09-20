@@ -7,14 +7,14 @@ namespace Shared
     internal class Player
     {
         public Rectangle rectangle;
-        private Texture2D texture;
+        Texture2D texture;
         int moveSpeed;
         Direcction direcction;
 
         public Player(Rectangle rectangle)
         {
             this.rectangle = rectangle;
-            this.texture = Tools.PlayerR(Color.Yellow);
+            this.texture = Tools.GetTexture("PacMan_20_80_PNG");
             this.moveSpeed = 2;
             this.direcction = Direcction.Up;
         }
@@ -27,13 +27,23 @@ namespace Shared
 
         internal void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, rectangle, Color.White);
+            if (direcction == Direcction.Left)
+                spriteBatch.Draw(texture, rectangle, new Rectangle(0, 0, 20, 20), Color.White);
+            else if (direcction == Direcction.Right)
+                spriteBatch.Draw(texture, rectangle, new Rectangle(20, 0, 20, 20), Color.White);
+            else if (direcction == Direcction.Up)
+                spriteBatch.Draw(texture, rectangle, new Rectangle(40, 0, 20, 20), Color.White);
+            else if (direcction == Direcction.Down)
+                spriteBatch.Draw(texture, rectangle, new Rectangle(60, 0, 20, 20), Color.White);
         }
 
         private void MovePlayer()
         {
-            KeyboardState keyboardState = Keyboard.GetState();
-
+            switch (direcction)
+            {
+                default:
+                    break;
+            }
             if (direcction == Direcction.Left)
             {
                 rectangle.X -= moveSpeed;
