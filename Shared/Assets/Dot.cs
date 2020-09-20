@@ -7,7 +7,7 @@ namespace Shared
     {
         private Rectangle rectangle;
         private Texture2D texture;
-        private bool active;
+        public bool active { get; private set; }
 
         public Dot(Rectangle rectangle, Texture2D texture2D)
         {
@@ -18,10 +18,13 @@ namespace Shared
 
         public void Update()
         {
-
-            if (rectangle.Intersects(GameScene.player.rectangle))
+            if (active)
             {
-                active = false;
+                if (rectangle.Intersects(GameScene.player.rectangle))
+                {
+                    GameScene.scoreText.UpdateScore(10);
+                    active = false;
+                }
             }
         }
 

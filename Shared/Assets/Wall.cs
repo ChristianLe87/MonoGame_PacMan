@@ -14,6 +14,10 @@ namespace Shared
             this.texture2D = texture2D;
         }
 
+        public void Update()
+        {
+        }
+
         internal void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture2D, rectangle, Color.White);

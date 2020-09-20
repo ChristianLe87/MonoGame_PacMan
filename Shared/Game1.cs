@@ -22,7 +22,7 @@ namespace Shared
         public Game1(string relativePath)
         {
             string absolutePath = new DirectoryInfo(Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, relativePath))).ToString();
-            this.Content.RootDirectory = absolutePath;
+            this.Content.RootDirectory = "/Users/christianlehnhoff/Repositorios/GitHub/MonoGame_PacMan/Shared/Assets/";
             contentManager = this.Content;
 
             graphicsDeviceManager = new GraphicsDeviceManager(this);

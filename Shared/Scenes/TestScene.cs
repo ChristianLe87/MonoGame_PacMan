@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Shared
 {
     public class TestScene : IScene
     {
-        Texture2D texture;
+        SpriteFont font_1;
+
 
         public TestScene()
         {
-            texture = Tools.GhostL( Color.Pink);
+            font_1 = Game1.contentManager.Load<SpriteFont>("Arial_20");
         }
 
         public void Update()
@@ -21,7 +20,7 @@ namespace Shared
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle(100, 100, 20, 20), Color.White);
+            spriteBatch.DrawString(font_1, "hello", new Vector2(50, 40), Color.Black);
         }
     }
 }

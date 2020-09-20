@@ -4,6 +4,8 @@ namespace Shared
     internal enum Direcction
     {
         Right,
-        Left
+        Left,
+        Up,
+        Down
     }
 }
