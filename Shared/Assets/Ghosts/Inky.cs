@@ -13,7 +13,7 @@ namespace Shared
         public Inky(Rectangle rectangle)
         {
             this.rectangle = rectangle;
-            this.texture2D = Tools.GetTexture("Ghosts");
+            this.texture2D = Tools.GetTexture(WK.Asset.Ghosts);
             this.direcction = Direcction.Up;
         }
 

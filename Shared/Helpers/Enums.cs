@@ -8,4 +8,10 @@ namespace Shared
         Up,
         Down
     }
+
+    internal enum State
+    {
+        Stop,
+        Moving
+    }
 }
