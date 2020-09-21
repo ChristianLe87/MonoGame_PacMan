@@ -126,7 +126,7 @@ namespace Shared
         private class GetIfWall {
             internal static bool Up(Rectangle rectangle)
             {
-                return (WK.Map.Map_1[rectangle.Y / 20 - 1, rectangle.X / 20] == 'x');
+                return (WK.Map.Map_1[rectangle.Y / 20, rectangle.X / 20] == 'x');
             }
 
             internal static bool Down(Rectangle rectangle)
