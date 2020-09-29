@@ -29,6 +29,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Dot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Wall.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Assets\Text.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ITeleporter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Assets\Teleporters\TeleporterLeft.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Assets\Teleporters\TeleporterRight.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\" />
@@ -36,5 +39,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
     <Folder Include="$(MSBuildThisFileDirectory)Assets\Ghosts\" />
     <Folder Include="$(MSBuildThisFileDirectory)Helpers\Interfaces\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Assets\Teleporters\" />
   </ItemGroup>
 </Project>

@@ -13,6 +13,7 @@ namespace Shared
         public static List<Wall> walls;
         public static List<Dot> dots;
         public static List<IGhosts> ghosts;
+        public static List<ITeleporter> teleports;
 
         public GameScene()
         {
@@ -27,9 +28,14 @@ namespace Shared
                 new Inky(new Point(14, 17)),
                 new Pinky(new Point(15, 17))
             };
+            teleports = new List<ITeleporter>()
+            {
+                new TeleporterLeft(new Point(1, 17)),
+                new TeleporterRight(new Point(26, 17)),
+            };
         }
 
-       
+
         public void Update()
         {
             //scoreText.Update();
@@ -37,6 +43,7 @@ namespace Shared
             foreach (var wall in walls) wall.Update();
             foreach (var dot in dots) dot.Update();
             foreach (var ghost in ghosts) ghost.Update();
+            foreach (var teleport in teleports) teleport.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -46,7 +53,7 @@ namespace Shared
             foreach (var wall in walls) wall.Draw(spriteBatch);
             foreach (var dot in dots) dot.Draw(spriteBatch);
             foreach (var ghost in ghosts) ghost.Draw(spriteBatch);
-            
+            foreach (var teleport in teleports) teleport.Draw(spriteBatch);
         }
     }
 }
