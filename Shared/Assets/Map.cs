@@ -17,7 +17,8 @@ namespace Shared
             for (var row = 0; row < numRows; row++)
                 for (var col = 0; col < numColumn; col++)
                     if (map[row, col] == '.')
-                        dots.Add(new Dot(new Rectangle(col * 20, row * 20, 20, 20), Tools.Dot(Color.Yellow)));
+                        dots.Add(new Dot(new Point(col, row), Tools.CreateColorTexture(Color.Yellow)));
+
 
             return dots;
         }
@@ -34,7 +35,7 @@ namespace Shared
             for (var row = 0; row < numRows; row++)
                 for (var col = 0; col < numColumn; col++)
                     if (map[row, col] == 'x')
-                        walls.Add(new Wall(new Rectangle(col * 20, row * 20, 20, 20), Tools.CreateColorTexture(Color.Blue)));
+                        walls.Add(new Wall(new Point(col, row), Tools.CreateColorTexture(Color.Blue)));
 
             return walls;
         }

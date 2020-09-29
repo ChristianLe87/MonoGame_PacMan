@@ -6,13 +6,13 @@ namespace Shared
 {
     public class Inky : IGhosts
     {
-        public Rectangle rectangle { get; set; }
+        public Point point { get; set; }
         public Texture2D texture2D { get; set; }
         Direcction direcction;
 
-        public Inky(Rectangle rectangle)
+        public Inky(Point point)
         {
-            this.rectangle = rectangle;
+            this.point = point;
             this.texture2D = Tools.GetTexture(WK.Asset.Ghosts);
             this.direcction = Direcction.Up;
         }
@@ -24,13 +24,13 @@ namespace Shared
         public void Draw(SpriteBatch spriteBatch)
         {
             if (direcction == Direcction.Up)
-                spriteBatch.Draw(texture2D, rectangle, new Rectangle(0, 40, 20, 20), Color.White);
+                spriteBatch.Draw(texture2D, new Rectangle(point.X * WK.W, point.Y * WK.H, WK.W, WK.H), new Rectangle(0, 40, 20, 20), Color.White);
             else if (direcction == Direcction.Down)
-                spriteBatch.Draw(texture2D, rectangle, new Rectangle(20, 40, 20, 20), Color.White);
+                spriteBatch.Draw(texture2D, new Rectangle(point.X * WK.W, point.Y * WK.H, WK.W, WK.H), new Rectangle(20, 40, 20, 20), Color.White);
             else if (direcction == Direcction.Left)
-                spriteBatch.Draw(texture2D, rectangle, new Rectangle(40, 40, 20, 20), Color.White);
+                spriteBatch.Draw(texture2D, new Rectangle(point.X * WK.W, point.Y * WK.H, WK.W, WK.H), new Rectangle(40, 40, 20, 20), Color.White);
             else if (direcction == Direcction.Right)
-                spriteBatch.Draw(texture2D, rectangle, new Rectangle(60, 40, 20, 20), Color.White);
+                spriteBatch.Draw(texture2D, new Rectangle(point.X * WK.W, point.Y * WK.H, WK.W, WK.H), new Rectangle(60, 40, 20, 20), Color.White);
         }
     }
 }

@@ -6,41 +6,41 @@ namespace Shared
 {
     internal class Player
     {
-        public Rectangle rectangle;
+        Point point;
         Texture2D texture;
         int moveSpeed;
         Direcction direcction;
         State state;
 
-        public Player(Rectangle rectangle)
+        public Player(Point point)
         {
-            this.rectangle = rectangle;
+            this.point = point;
             this.texture = Tools.GetTexture(WK.Asset.PacMan);
             this.moveSpeed = 1;
-            this.direcction = Direcction.Left;
-            this.state = State.Moving;
+            this.direcction = Direcction.Up;
+            this.state = State.Stop;
         }
 
         internal void Update()
         {
-            MovePlayer();
-            SetDirection();
-            SetState();
+            //MovePlayer();
+            //SetDirection();
+            //SetState();
         }
 
         internal void Draw(SpriteBatch spriteBatch)
         {
             if (direcction == Direcction.Left)
-                spriteBatch.Draw(texture, rectangle, new Rectangle(0, 0, 20, 20), Color.White);
+                spriteBatch.Draw(texture, new Rectangle(point.X * WK.W, point.Y * WK.H, WK.W, WK.H), new Rectangle(0, 0, 20, 20), Color.White);
             else if (direcction == Direcction.Right)
-                spriteBatch.Draw(texture, rectangle, new Rectangle(20, 0, 20, 20), Color.White);
+                spriteBatch.Draw(texture, new Rectangle(point.X * WK.W, point.Y * WK.H, WK.W, WK.H), new Rectangle(20, 0, 20, 20), Color.White);
             else if (direcction == Direcction.Up)
-                spriteBatch.Draw(texture, rectangle, new Rectangle(40, 0, 20, 20), Color.White);
+                spriteBatch.Draw(texture, new Rectangle(point.X * WK.W, point.Y * WK.H, WK.W, WK.H), new Rectangle(40, 0, 20, 20), Color.White);
             else if (direcction == Direcction.Down)
-                spriteBatch.Draw(texture, rectangle, new Rectangle(60, 0, 20, 20), Color.White);
+                spriteBatch.Draw(texture, new Rectangle(point.X * WK.W, point.Y * WK.H, WK.W, WK.H), new Rectangle(60, 0, 20, 20), Color.White);
         }
 
-        private void MovePlayer()
+        /*private void MovePlayer()
         {
             if (state == State.Moving)
             {
@@ -75,9 +75,9 @@ namespace Shared
                 }
                     
             }
-        }
+        }*/
 
-        private void SetDirection()
+        /*private void SetDirection()
         {
             KeyboardState keyboardState = Keyboard.GetState();
 
@@ -101,9 +101,9 @@ namespace Shared
                 direcction = Direcction.Down;
                 state = State.Moving;
             }
-        }
+        }*/
 
-        private void SetState()
+        /*private void SetState()
         {
             if (direcction == Direcction.Up && GetIfWall.Up(rectangle))
             {
@@ -121,9 +121,9 @@ namespace Shared
             {
                 state = State.Stop;
             }
-        }
+        }*/
 
-        private class GetIfWall {
+        /*private class GetIfWall {
             internal static bool Up(Rectangle rectangle)
             {
                 return (WK.Map.Map_1[rectangle.Y / 20, rectangle.X / 20] == 'x');
@@ -144,6 +144,6 @@ namespace Shared
                 return (WK.Map.Map_1[rectangle.Y / 20, rectangle.X / 20] == 'x');
             }
 
-        }
+        }*/
     }
 }
