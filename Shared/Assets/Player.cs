@@ -6,7 +6,7 @@ namespace Shared
 {
     internal class Player
     {
-        Point point;
+        public Point point;
         Texture2D texture;
         int moveSpeed;
         Direcction direcction;
@@ -23,9 +23,9 @@ namespace Shared
 
         internal void Update()
         {
-            //MovePlayer();
-            //SetDirection();
-            //SetState();
+            MovePlayer();
+            SetDirection();
+            SetState();
         }
 
         internal void Draw(SpriteBatch spriteBatch)
@@ -40,44 +40,43 @@ namespace Shared
                 spriteBatch.Draw(texture, new Rectangle(point.X * WK.W, point.Y * WK.H, WK.W, WK.H), new Rectangle(60, 0, 20, 20), Color.White);
         }
 
-        /*private void MovePlayer()
+        private void MovePlayer()
         {
             if (state == State.Moving)
             {
                 if (direcction == Direcction.Left)
                 {
-                    if (GetIfWall.Left(rectangle) == false)
+                    if (Get_If_Is_Wall.Left(point) == false)
                     {
-                        rectangle.X -= moveSpeed;
+                        point.X -= moveSpeed;
                     }
                 }
-                    
                 else if (direcction == Direcction.Right)
                 {
-                    if (GetIfWall.Right(rectangle) == false)
+                    if (Get_If_Is_Wall.Right(point) == false)
                     {
-                        rectangle.X += moveSpeed;
+                        point.X += moveSpeed;
                     }
                 }
                 else if (direcction == Direcction.Up)
                 {
-                    if (GetIfWall.Up(rectangle) == false)
+                    if (Get_If_Is_Wall.Up(point) == false)
                     {
-                        rectangle.Y -= moveSpeed;
+                        point.Y -= moveSpeed;
                     }
                 }
                 else if (direcction == Direcction.Down)
                 {
-                    if (GetIfWall.Down(rectangle) == false)
+                    if (Get_If_Is_Wall.Down(point) == false)
                     {
-                        rectangle.Y += moveSpeed;
+                        point.Y += moveSpeed;
                     }
                 }
                     
             }
-        }*/
+        }
 
-        /*private void SetDirection()
+        private void SetDirection()
         {
             KeyboardState keyboardState = Keyboard.GetState();
 
@@ -101,49 +100,49 @@ namespace Shared
                 direcction = Direcction.Down;
                 state = State.Moving;
             }
-        }*/
+        }
 
-        /*private void SetState()
+        private void SetState()
         {
-            if (direcction == Direcction.Up && GetIfWall.Up(rectangle))
+            if (direcction == Direcction.Up && Get_If_Is_Wall.Up(point))
             {
                 state = State.Stop;
             }
-            else if (direcction == Direcction.Down && GetIfWall.Down(rectangle))
+            else if (direcction == Direcction.Down && Get_If_Is_Wall.Down(point))
             {
                 state = State.Stop;
             }
-            else if (direcction == Direcction.Right && GetIfWall.Right(rectangle))
+            else if (direcction == Direcction.Right && Get_If_Is_Wall.Right(point))
             {
                 state = State.Stop;
             }
-            else if (direcction == Direcction.Left && GetIfWall.Left(rectangle))
+            else if (direcction == Direcction.Left && Get_If_Is_Wall.Left(point))
             {
                 state = State.Stop;
             }
-        }*/
+        }
 
-        /*private class GetIfWall {
-            internal static bool Up(Rectangle rectangle)
+        class Get_If_Is_Wall {
+            internal static bool Up(Point point)
             {
-                return (WK.Map.Map_1[rectangle.Y / 20, rectangle.X / 20] == 'x');
+                return (WK.Map.Map_1[point.Y-1, point.X] == 'x');
             }
 
-            internal static bool Down(Rectangle rectangle)
+            internal static bool Down(Point point)
             {
-                return (WK.Map.Map_1[rectangle.Y / 20 + 1, rectangle.X / 20] == 'x');
+                return (WK.Map.Map_1[point.Y + 1, point.X] == 'x');
             }
 
-            internal static bool Right(Rectangle rectangle)
+            internal static bool Right(Point point)
             {
-                return (WK.Map.Map_1[rectangle.Y / 20, rectangle.X / 20 + 1] == 'x');
+                return (WK.Map.Map_1[point.Y, point.X + 1] == 'x');
             }
 
-            internal static bool Left(Rectangle rectangle)
+            internal static bool Left(Point point)
             {
-                return (WK.Map.Map_1[rectangle.Y / 20, rectangle.X / 20] == 'x');
+                return (WK.Map.Map_1[point.Y, point.X - 1] == 'x');
             }
 
-        }*/
+        }
     }
 }
