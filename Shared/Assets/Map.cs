@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Shared
 {
@@ -9,6 +10,8 @@ namespace Shared
         {
             char[,] map = WK.Map.Map_1;
 
+            Texture2D texture2D = Tools.GetTexture(WK.Asset.Dot);
+
             int numRows = map.GetLength(0);
             int numColumn = map.GetLength(1);
 
@@ -17,7 +20,7 @@ namespace Shared
             for (var row = 0; row < numRows; row++)
                 for (var col = 0; col < numColumn; col++)
                     if (map[row, col] == '.')
-                        dots.Add(new Dot(new Point(col, row), Tools.CreateColorTexture(Color.Yellow)));
+                        dots.Add(new Dot(new Point(col, row), texture2D));
 
 
             return dots;

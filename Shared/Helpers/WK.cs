@@ -11,6 +11,7 @@
         {
             public static readonly string PacMan = "PacMan_20_80_PNG";
             public static readonly string Ghosts = "Ghosts_80_80_PNG";
+            public static readonly string Dot = "Dot_20x20_PNG";
         }
 
 
