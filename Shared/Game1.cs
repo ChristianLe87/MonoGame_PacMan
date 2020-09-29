@@ -30,6 +30,10 @@ namespace Shared
             // Window size
             graphicsDeviceManager.PreferredBackBufferWidth = WK.Map.Map_1.GetLength(1) * WK.W;
             graphicsDeviceManager.PreferredBackBufferHeight = WK.Map.Map_1.GetLength(0) * WK.H;
+
+            // FPS
+            this.IsFixedTimeStep = true;
+            this.TargetElapsedTime = TimeSpan.FromSeconds(1d / WK.FPS);
         }
 
 
