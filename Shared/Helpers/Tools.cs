@@ -16,7 +16,7 @@ namespace Shared
 
         internal static Texture2D GetTexture(string imageName)
         {
-            string relativePath = $"../../../../MonoGame_PacMan/Shared/Assets/{imageName}.png";
+            string relativePath = $"{WK.Content.RelativePath}{imageName}.png";
             string absolutePath = new DirectoryInfo(Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, relativePath))).ToString();
 
             FileStream fileStream = new FileStream(absolutePath, FileMode.Open);

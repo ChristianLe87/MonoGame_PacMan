@@ -7,6 +7,12 @@
         public static readonly int H = 20;
         public static readonly int W = 20;
 
+        public class Content
+        {
+            public static readonly string RelativePath = "../../../../MonoGame_PacMan/Shared/Content/";
+        }
+
+
         public class Asset
         {
             public static readonly string PacMan = "PacMan_20_80_PNG";
