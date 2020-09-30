@@ -2,7 +2,7 @@
 {
     public class WK
     {
-        public static readonly double FPS = 15;
+        public static readonly double FPS = 60;
 
         public static readonly int H = 20;
         public static readonly int W = 20;

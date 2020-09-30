@@ -12,6 +12,8 @@ namespace Shared
         Direcction direcction;
         State state;
 
+        int framesCount;
+
         public Player(Point point)
         {
             this.point = point;
@@ -19,11 +21,17 @@ namespace Shared
             this.moveSpeed = 1;
             this.direcction = Direcction.Up;
             this.state = State.Stop;
+            this.framesCount = 0;
         }
 
         internal void Update()
         {
-            MovePlayer();
+            framesCount++;
+
+            if (framesCount > 10)
+            {
+                MovePlayer2(); framesCount = 0;
+            }
             SetDirection();
             SetState();
         }
@@ -40,7 +48,7 @@ namespace Shared
                 spriteBatch.Draw(texture, new Rectangle(point.X * WK.W, point.Y * WK.H, WK.W, WK.H), new Rectangle(60, 0, 20, 20), Color.White);
         }
 
-        private void MovePlayer()
+        private void MovePlayer2()
         {
             if (state == State.Moving)
             {

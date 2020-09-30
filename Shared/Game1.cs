@@ -64,7 +64,6 @@ namespace Shared
         {
             // code
             scenes[actualScene].Update();
-
             base.Update(gameTime);
         }
 
