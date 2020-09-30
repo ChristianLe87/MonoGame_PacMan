@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -11,6 +12,8 @@ namespace Shared
         int moveSpeed;
         Direcction direcction;
         State state;
+        SoundEffect eatingSound_1;
+        SoundEffect eatingSound_2;
 
         int framesCount;
 
@@ -22,16 +25,29 @@ namespace Shared
             this.direcction = Direcction.Up;
             this.state = State.Stop;
             this.framesCount = 0;
+            this.eatingSound_1 = Tools.GetSoundEffect("EatingSound_1");
+            this.eatingSound_2 = Tools.GetSoundEffect("EatingSound_2");
         }
 
         internal void Update()
         {
             framesCount++;
 
-            if (framesCount > 10)
+            if (framesCount == 10)
             {
-                MovePlayer2(); framesCount = 0;
+                MovePlayer2();
+                if(state == State.Moving)
+                    eatingSound_1.Play();
             }
+
+            if (framesCount == 20)
+            {
+                framesCount = 0;
+                if (state == State.Moving)
+                    eatingSound_2.Play();
+            }
+
+
             SetDirection();
             SetState();
         }

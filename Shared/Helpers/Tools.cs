@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Shared
@@ -128,6 +129,19 @@ namespace Shared
             Texture2D newTexture = new Texture2D(Game1.graphicsDeviceManager.GraphicsDevice, 20, 20);
             newTexture.SetData(thing);
             return newTexture;
+        }
+
+        internal static SoundEffect GetSoundEffect(string soundName)
+        {
+            string relativePath = $"{WK.Content.RelativePath}{soundName}.wav";
+            string absolutePath = new DirectoryInfo(Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, relativePath))).ToString();
+
+            FileStream fileStream = new FileStream(absolutePath, FileMode.Open);
+
+            var result = SoundEffect.FromStream(fileStream);
+            fileStream.Dispose();
+
+            return result;
         }
     }
 }
