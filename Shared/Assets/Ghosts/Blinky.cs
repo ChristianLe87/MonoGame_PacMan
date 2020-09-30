@@ -14,7 +14,7 @@ namespace Shared
         public Blinky(Point point)
         {
             this.point = point;
-            this.texture2D = Tools.GetTexture(WK.Asset.Ghosts);
+            this.texture2D = Tools.GetTexture(WK.Content.Ghosts);
             this.direcction = Direcction.Up;
         }
 

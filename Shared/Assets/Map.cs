@@ -10,7 +10,7 @@ namespace Shared
         {
             char[,] map = WK.Map.Map_1;
 
-            Texture2D texture2D = Tools.GetTexture(WK.Asset.Dot);
+            Texture2D texture2D = Tools.GetTexture(WK.Content.Dot);
 
             int numRows = map.GetLength(0);
             int numColumn = map.GetLength(1);

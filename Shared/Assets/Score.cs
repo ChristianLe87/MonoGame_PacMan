@@ -12,7 +12,7 @@ namespace Shared
 
         public Score(Point point)
         {
-            this.font = Game1.contentManager.Load<SpriteFont>("Arial_20");
+            this.font = Game1.contentManager.Load<SpriteFont>(WK.Content.Arial_20);
             this.point = point;
             this.score = 0;
         }
