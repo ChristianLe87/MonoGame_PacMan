@@ -4,27 +4,26 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Shared
 {
-    public class Text
+    public class Score
     {
         SpriteFont font;
-        Vector2 position;
+        Point point;
         int score;
 
-        public Text(Vector2 position)
+        public Score(Point point)
         {
             this.font = Game1.contentManager.Load<SpriteFont>("Arial_20");
-            this.position = position;
+            this.point = point;
             this.score = 0;
         }
 
         public void Update()
         {
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(font, $"Score: {score}", position, Color.Black);
+            spriteBatch.DrawString(font, $"Score: {score}", new Vector2(point.X, point.Y), Color.Black);
         }
 
         public void UpdateScore(int addScore)

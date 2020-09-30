@@ -24,7 +24,7 @@ namespace Shared
                 Rectangle playerRectangle = new Rectangle(GameScene.player.point.X * WK.W, GameScene.player.point.Y * WK.H, WK.W, WK.H);
                 if (rectangle.Intersects(playerRectangle))
                 {
-                    //GameScene.scoreText.UpdateScore(10);
+                    GameScene.scoreText.UpdateScore(10);
                     active = false;
                 }
             }

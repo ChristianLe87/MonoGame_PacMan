@@ -8,7 +8,7 @@ namespace Shared
 {
     internal class GameScene : IScene
     {
-        //public static Text scoreText;
+        public static Score scoreText;
         public static Player player;
         public static List<Wall> walls;
         public static List<Dot> dots;
@@ -17,7 +17,7 @@ namespace Shared
 
         public GameScene()
         {
-            //scoreText = new Text(new Point(2, 1), "Score: 0");
+            scoreText = new Score(new Point(2, 1));
             player = new Player(new Point(13, 20));
             walls = Map.Walls();
             dots = Map.Dots();
@@ -38,7 +38,7 @@ namespace Shared
 
         public void Update()
         {
-            //scoreText.Update();
+            scoreText.Update();
             player.Update();
             foreach (var wall in walls) wall.Update();
             foreach (var dot in dots) dot.Update();
@@ -48,7 +48,7 @@ namespace Shared
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //scoreText.Draw(spriteBatch);
+            scoreText.Draw(spriteBatch);
             player.Draw(spriteBatch);
             foreach (var wall in walls) wall.Draw(spriteBatch);
             foreach (var dot in dots) dot.Draw(spriteBatch);
