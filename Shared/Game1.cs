@@ -19,30 +19,24 @@ namespace Shared
 
         Dictionary<string, IScene> scenes;
 
-        public Game1(string relativePath)
+        public Game1()
         {
             string absolutePath = new DirectoryInfo(Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, WK.Content.RelativePath))).ToString();
             this.Content.RootDirectory = absolutePath;
             contentManager = this.Content;
 
-            graphicsDeviceManager = new GraphicsDeviceManager(this);
-
-            // Window size
-            graphicsDeviceManager.PreferredBackBufferWidth = WK.Map.Map_1.GetLength(1) * WK.W;
-            graphicsDeviceManager.PreferredBackBufferHeight = WK.Map.Map_1.GetLength(0) * WK.H;
-
             // FPS
             this.IsFixedTimeStep = true;
             this.TargetElapsedTime = TimeSpan.FromSeconds(1d / WK.FPS);
-        }
 
+            // Window size
+            graphicsDeviceManager = new GraphicsDeviceManager(this);
+            graphicsDeviceManager.PreferredBackBufferWidth = WK.Map.Map_1.GetLength(1) * WK.W;
+            graphicsDeviceManager.PreferredBackBufferHeight = WK.Map.Map_1.GetLength(0) * WK.H;
+            graphicsDeviceManager.ApplyChanges();
 
-        protected override void Initialize()
-        {
-            // code
             base.Initialize();
         }
-
 
         protected override void LoadContent()
         {
