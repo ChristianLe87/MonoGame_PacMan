@@ -10,7 +10,7 @@ namespace Shared
         public Point point;
         Texture2D texture;
         int moveSpeed;
-        Direcction direcction;
+        public Direcction direcction;
         State state;
         SoundEffect eatingSound;
 

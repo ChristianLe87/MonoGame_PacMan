@@ -10,10 +10,10 @@ namespace Shared
     {
         public Point point;
         Texture2D texture2D;
-        int moveSpeed = 1;
         Direcction direcction;
-
+        int moveSpeed = 1;
         int framesCount = 0;
+
         public Blinky(Point point)
         {
             this.point = /*point*/new Point(18, 14);
@@ -29,7 +29,9 @@ namespace Shared
             {
                 framesCount = 0;
 
+                // where PacMan is located
                 Point playerPosition = GameScene.player.point;
+
                 float distanceToPlayerUp = DistanceToPlayer(playerPosition, new Point(point.X, point.Y - 1));
                 float distanceToPlayerRight = DistanceToPlayer(playerPosition, new Point(point.X + 1, point.Y));
                 float distanceToPlayerDown = DistanceToPlayer(playerPosition, new Point(point.X, point.Y + 1));
@@ -171,22 +173,22 @@ namespace Shared
         {
             internal static bool Up(Point point)
             {
-                return (WK.Map.Map_1[point.Y - 1, point.X] == 'x');
+                return (WK.Map.Map_1[point.Y - 1, point.X] == 'x') || (WK.Map.Map_1[point.Y - 1, point.X] == '-');
             }
 
             internal static bool Down(Point point)
             {
-                return (WK.Map.Map_1[point.Y + 1, point.X] == 'x');
+                return (WK.Map.Map_1[point.Y + 1, point.X] == 'x') || (WK.Map.Map_1[point.Y + 1, point.X] == '-');
             }
 
             internal static bool Right(Point point)
             {
-                return (WK.Map.Map_1[point.Y, point.X + 1] == 'x');
+                return (WK.Map.Map_1[point.Y, point.X + 1] == 'x') || (WK.Map.Map_1[point.Y, point.X + 1] == '-');
             }
 
             internal static bool Left(Point point)
             {
-                return (WK.Map.Map_1[point.Y, point.X - 1] == 'x');
+                return (WK.Map.Map_1[point.Y, point.X - 1] == 'x') || (WK.Map.Map_1[point.Y, point.X - 1] == '-');
             }
 
         }
