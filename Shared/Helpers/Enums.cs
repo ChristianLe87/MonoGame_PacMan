@@ -14,4 +14,15 @@ namespace Shared
         Stop,
         Moving
     }
+
+    internal class MoveTo
+    {
+        public Direcction direcction;
+        public float distance;
+        public MoveTo(Direcction direcction, float distance)
+        {
+            this.direcction = direcction;
+            this.distance = distance;
+        }
+    }
 }

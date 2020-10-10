@@ -143,5 +143,45 @@ namespace Shared
 
             return result;
         }
+
+
+        internal static float DistanceToPlayer(Point playerPosition, Point ghostPosition)
+        {
+
+            int x = Math.Abs(playerPosition.X - ghostPosition.X);
+            int y = Math.Abs(playerPosition.Y - ghostPosition.Y);
+
+            int x2 = x * x;
+            int y2 = y * y;
+
+            double distance = Math.Sqrt(x2 + y2);
+
+            return (float)distance;
+        }
+
+    }
+
+    internal class Get_If_Is_Wall
+    {
+        internal static bool Up(Point point)
+        {
+            return (WK.Map.Map_1[point.Y - 1, point.X] == 'x') || (WK.Map.Map_1[point.Y - 1, point.X] == '-');
+        }
+
+        internal static bool Down(Point point)
+        {
+            return (WK.Map.Map_1[point.Y + 1, point.X] == 'x') || (WK.Map.Map_1[point.Y + 1, point.X] == '-');
+        }
+
+        internal static bool Right(Point point)
+        {
+            return (WK.Map.Map_1[point.Y, point.X + 1] == 'x') || (WK.Map.Map_1[point.Y, point.X + 1] == '-');
+        }
+
+        internal static bool Left(Point point)
+        {
+            return (WK.Map.Map_1[point.Y, point.X - 1] == 'x') || (WK.Map.Map_1[point.Y, point.X - 1] == '-');
+        }
+
     }
 }
